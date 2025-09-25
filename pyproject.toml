@@ -1,0 +1,18 @@
+[project]
+name = "free-flight-plots"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "geomdl>=5.4.0",
+    "matplotlib>=3.10.6",
+    "numpy>=2.3.3",
+    "opencv-python>=4.11.0.86",
+    "scipy>=1.16.2",
+    "vtk>=9.5.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.2,<0.9.0"]
+build-backend = "uv_build"
