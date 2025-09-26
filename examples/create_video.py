@@ -51,6 +51,7 @@ for item in file_list:
     ffplots = FreeFlightPlots()
     ffplots.Renderer()
     ffplots.ConstructModel()
+
     
     # Scale model:
     mdl_scale = [0.8,0.8,0.8,1.0,1.0]
@@ -68,6 +69,10 @@ for item in file_list:
     ffplots.set_srf_angle(np.pi*(55.0/180.0))
     ffplots.load_data(data_file, show=False)
     view_list = file_to_cam_views[str(data_file.stem)]
+
+    #ffplots.plot_kinematics()
+    #plt.show()
+
     
     match video_type:
         case 'moving':

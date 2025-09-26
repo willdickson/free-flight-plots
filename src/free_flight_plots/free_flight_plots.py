@@ -93,14 +93,15 @@ class FreeFlightPlots():
             ax.set_xlabel('frame')
             plt.show()
 
-        if 1:
+        if 0:
             fig, ax = plt.subplots(7,1,sharex=True)
-            ax[0].plot(self.f,self.x, 'r')
-            ax[0].plot(self.f,self.y, 'g')
-            ax[0].plot(self.f,self.z, 'b')
+            line_x, = ax[0].plot(self.f,self.x, 'r')
+            line_y, = ax[0].plot(self.f,self.y, 'g')
+            line_z, = ax[0].plot(self.f,self.z, 'b')
             ax[0].set_ylabel('pos')
             ax[0].grid(True)
             ax[0].set_ylim(-40,40)
+            ax[0].legend((line_x, line_y, line_z), ('x', 'y', 'z'), loc='upper right')
             
             ax[1].plot(self.f,self.vx, 'r')
             ax[1].plot(self.f,self.vy, 'g')
@@ -124,26 +125,85 @@ class FreeFlightPlots():
             ax[3].grid(True)
             ax[3].set_ylim(-70,90)
             
-            ax[4].plot(self.f,self.phi_R, 'r')
-            ax[4].plot(self.f,self.phi_L, 'b')
+            ax[4].plot(self.f,np.rad2deg(self.phi_R), 'r')
+            ax[4].plot(self.f,np.rad2deg(self.phi_L), 'b')
             ax[4].set_ylabel('phi')
             ax[4].grid(True)
             ax[4].set_ylim(-80,80)
             
-            ax[5].plot(self.f,self.theta_R, 'r')
-            ax[5].plot(self.f,self.theta_L, 'b')
+            ax[5].plot(self.f,np.rad2deg(self.theta_R), 'r')
+            ax[5].plot(self.f,np.rad2deg(self.theta_L), 'b')
             ax[5].set_ylabel('theta')
             ax[5].grid(True)
             ax[5].set_ylim(-30,30)
             
-            ax[6].plot(self.f,self.eta_R, 'r')
-            ax[6].plot(self.f,self.eta_L, 'b')
+            ax[6].plot(self.f,np.rad2deg(self.eta_R), 'r')
+            ax[6].plot(self.f,np.rad2deg(self.eta_L), 'b')
             ax[6].set_ylabel('eta')
             ax[6].grid(True)
             ax[6].set_ylim(-80,80)
             
             ax[6].set_xlabel('frame')
             plt.show()
+
+        if 1:
+
+            fig, ax = plt.subplots(7,1,sharex=True)
+            line_x, = ax[0].plot(self.t,self.x, 'r')
+            line_y, = ax[0].plot(self.t,self.y, 'g')
+            line_z, = ax[0].plot(self.t,self.z, 'b')
+            ax[0].set_ylabel('pos')
+            ax[0].grid(True)
+            ax[0].set_ylim(-40,40)
+            ax[0].legend((line_x, line_y, line_z), ('x', 'y', 'z'), loc='upper right')
+            
+            ax[1].plot(self.t,self.vx, 'r')
+            ax[1].plot(self.t,self.vy, 'g')
+            ax[1].plot(self.t,self.vz, 'b')
+
+            ax[1].set_ylabel('vel')
+            ax[1].grid(True)
+            ax[1].set_ylim(-500,500)
+            
+            ax[2].plot(self.t,self.q0, 'k')
+            ax[2].plot(self.t,self.qx, 'r')
+            ax[2].plot(self.t,self.qy, 'g')
+            ax[2].plot(self.t,self.qz, 'b')
+            ax[2].set_ylabel('quat')
+            ax[2].grid(True)
+            ax[2].set_ylim(-1,1)
+            
+            ax[3].plot(self.t,self.wx, 'r')
+            ax[3].plot(self.t,self.wy, 'g')
+            ax[3].plot(self.t,self.wz, 'b')
+            ax[3].set_ylabel('angvel')
+            ax[3].grid(True)
+            ax[3].set_ylim(-70,90)
+            
+            ax[4].plot(self.t,np.rad2deg(self.phi_R), 'r')
+            ax[4].plot(self.t,np.rad2deg(self.phi_L), 'b')
+            ax[4].set_ylabel('phi (deg)')
+            ax[4].grid(True)
+            ax[4].set_ylim(-80,80)
+            
+            ax[5].plot(self.t,np.rad2deg(self.theta_R), 'r')
+            ax[5].plot(self.t,np.rad2deg(self.theta_L), 'b')
+            ax[5].set_ylabel('theta (deg)')
+            ax[5].grid(True)
+            ax[5].set_ylim(-30,30)
+            
+            ax[6].plot(self.t,np.rad2deg(self.eta_R), 'r')
+            ax[6].plot(self.t,np.rad2deg(self.eta_L), 'b')
+            ax[6].set_ylabel('eta (deg)')
+            ax[6].grid(True)
+            ax[6].set_ylim(-80,80)
+            
+            ax[6].set_xlabel('t (ms)')
+
+
+
+            plt.show()
+
 
 
     def Renderer(self):

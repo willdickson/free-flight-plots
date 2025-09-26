@@ -9,6 +9,7 @@ dependencies = [
     "matplotlib>=3.10.6",
     "numpy>=2.3.3",
     "opencv-python>=4.11.0.86",
+    "pyside6>=6.9.2",
     "scipy>=1.16.2",
     "vtk>=9.5.2",
 ]
